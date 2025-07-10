@@ -1,0 +1,35 @@
+name: Build Libraries
+
+on:
+  push:
+    paths:
+      - '**/*.cpp'
+      - '**/*.h'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - '**/*.cpp'
+      - '**/*.h'
+      - '**/CMakeLists.txt'
+      - '.github/workflows/**'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            cmake -B build -S . -A x64
+          else
+            cmake -B build -S .
+          fi
+        shell: bash
+      - name: Build
+        run: cmake --build build --config Release
+        shell: bash
