@@ -13,7 +13,7 @@ Free open source voice chat
    ```
 3. Publish the GUI for Linux:
    ```
-   dotnet publish src/reverb/reverb.csproj -c Release -r linux-x64 --self-contained false
+   dotnet publish client/reverb/reverb.csproj -c Release -r linux-x64 --self-contained false
    ```
 
 ### Windows
@@ -26,5 +26,14 @@ Free open source voice chat
    ```
 3. Publish the GUI for Windows:
    ```
-   dotnet publish src/reverb/reverb.csproj -c Release -r win-x64 --self-contained false
+   dotnet publish client/reverb/reverb.csproj -c Release -r win-x64 --self-contained false
    ```
+
+### Build scripts
+
+Instead of running the commands manually you can execute one of the provided build scripts:
+
+* **Linux:** `./build_linux.sh`
+* **Windows:** `build_windows.ps1`
+
+The scripts place all build artifacts into `output/linux/bin` or `output/windows/bin` respectively.
