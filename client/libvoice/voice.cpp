@@ -1,5 +1,5 @@
+#include "miniaudio.c"
 #include "voice.h"
-#include "miniaudio.h"
 #include <cstdlib>
 #include <cstring>
 
