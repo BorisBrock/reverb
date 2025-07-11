@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(client/libvoice)
 add_subdirectory(client/libchat)
+add_subdirectory(server)
