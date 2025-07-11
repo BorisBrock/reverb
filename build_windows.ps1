@@ -15,6 +15,8 @@ cmake --build $BuildDir --config Release
 
 # Copy native libraries to bin directory
 Get-ChildItem -Path $BuildDir -Filter '*.dll' -Recurse | ForEach-Object { Copy-Item $_.FullName $BinDir }
+# Copy server executable to bin directory
+Get-ChildItem -Path $BuildDir -Filter 'reverb-server.exe' -Recurse | ForEach-Object { Copy-Item $_.FullName $BinDir }
 
 # Publish the .NET GUI application
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
