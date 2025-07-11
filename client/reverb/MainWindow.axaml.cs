@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using System;
 
 namespace reverb;
 
@@ -21,5 +23,25 @@ public partial class MainWindow : Window
         OutputDeviceBox.ItemsSource = outputs;
         if (outputs.Length > 0)
             OutputDeviceBox.SelectedIndex = 0;
+    }
+
+    private void ConnectClicked(object? sender, RoutedEventArgs e)
+    {
+        ConnectButton.IsEnabled = false;
+        DisconnectButton.IsEnabled = true;
+
+        string server = ServerBox.Text ?? string.Empty;
+        ushort port = (ushort)(PortBox.Value ?? 0);
+        string user = UserNameBox.Text ?? string.Empty;
+
+        Console.WriteLine($"Connect: server={server} port={port} user={user}");
+    }
+
+    private void DisconnectClicked(object? sender, RoutedEventArgs e)
+    {
+        ConnectButton.IsEnabled = true;
+        DisconnectButton.IsEnabled = false;
+
+        Console.WriteLine("Disconnect");
     }
 }
