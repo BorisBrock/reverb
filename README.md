@@ -5,7 +5,7 @@ Free open source voice chat
 
 ### Linux
 
-1. Install CMake, a C++ toolchain and the .NET 9.0 SDK. The repository includes `dotnet-install.sh` that can be used to install the required SDK.
+1. Install CMake, a C++ toolchain and the .NET 9.0 SDK. The repository includes `dotnet-install.sh` that can be used to install the required SDK. During configuration CMake will automatically download the [nng](https://github.com/nanomsg/nng) library.
 2. Build the native libraries and server:
    ```
    cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
