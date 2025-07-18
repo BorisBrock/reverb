@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System;
 
+
 namespace reverb;
 
 public partial class MainWindow : Window
@@ -35,13 +36,16 @@ public partial class MainWindow : Window
         string user = UserNameBox.Text ?? string.Empty;
 
         Console.WriteLine($"Connect: server={server} port={port} user={user}");
+
+        string uri = $"ws://{server}:{port}/";
+        VoiceInterop.ConnectWebSocket(uri);
     }
 
     private void DisconnectClicked(object? sender, RoutedEventArgs e)
     {
         ConnectButton.IsEnabled = true;
         DisconnectButton.IsEnabled = false;
-
+        VoiceInterop.DisconnectWebSocket();
         Console.WriteLine("Disconnect");
     }
 }

@@ -14,6 +14,12 @@ internal static class VoiceInterop
     [DllImport("voice", CallingConvention = CallingConvention.Cdecl)]
     private static extern void voice_free_device_list(IntPtr list, int count);
 
+    [DllImport("voice", CallingConvention = CallingConvention.Cdecl)]
+    private static extern void voice_ws_connect([MarshalAs(UnmanagedType.LPStr)] string uri);
+
+    [DllImport("voice", CallingConvention = CallingConvention.Cdecl)]
+    private static extern void voice_ws_disconnect();
+
     public static string[] GetOutputDevices()
     {
         IntPtr list = voice_get_output_devices(out int count);
@@ -39,5 +45,15 @@ internal static class VoiceInterop
         }
         voice_free_device_list(list, count);
         return devices;
+    }
+
+    public static void ConnectWebSocket(string uri)
+    {
+        voice_ws_connect(uri);
+    }
+
+    public static void DisconnectWebSocket()
+    {
+        voice_ws_disconnect();
     }
 }
