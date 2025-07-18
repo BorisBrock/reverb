@@ -57,7 +57,6 @@ namespace voice
 
 extern "C"
 {
-
     void voice_dummy()
     {
         voice::dummy();
