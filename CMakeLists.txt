@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
-add_subdirectory(client/libvoice)
+add_subdirectory(client/libreverb)
 add_subdirectory(server)

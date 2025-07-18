@@ -5,9 +5,6 @@
 
 namespace voice
 {
-
-    void dummy() {}
-
     static std::vector<std::string> list_devices(ma_device_type type)
     {
         ma_context context;
@@ -57,11 +54,6 @@ namespace voice
 
 extern "C"
 {
-    void voice_dummy()
-    {
-        voice::dummy();
-    }
-
     static char **to_c_array(const std::vector<std::string> &vec, int *count)
     {
         if (count)
