@@ -1,9 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "description": "A foundation for scalable desktop apps",
+  "name": "reverb-voice-chat",
+  "description": "A modern voice chat app for gamers",
   "keywords": [
     "electron",
-    "boilerplate",
     "react",
     "typescript",
     "ts",
