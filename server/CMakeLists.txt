@@ -4,5 +4,6 @@ target_include_directories(reverb-server PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${PROJECT_SOURCE_DIR}/libs)
 
-target_compile_definitions(reverb-server PRIVATE ASIO_STANDALONE)
-target_link_libraries(reverb-server PRIVATE pthread)
+find_package(Boost REQUIRED COMPONENTS system)
+
+target_link_libraries(reverb-server PRIVATE pthread Boost::system)
