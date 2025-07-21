@@ -30,30 +30,42 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MuteIcon from '@mui/icons-material/VolumeMute';
-import TopBarButton from './TopAppBarButton';
 
-export default function TopAppBar() {
-  return (
-    <Box sx={{ flexGrow: 1, mb: 2 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Reverb
-          </Typography>
-          <TopBarButton headline="Server" content="reverb.borisbrock.de" />
-          <TopBarButton headline="Input Device" content="Realtek HD Audio Microphone" />
-          <TopBarButton headline="Output Device" content="Intel UHD XCS Speakers" />
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+interface TopBarButtonProps {
+  headline: string;
+  content: string;
 }
+
+const TopBarButton: React.FC<TopBarButtonProps> = ({ headline, content }) => {
+  return (
+    <Paper
+      elevation={3}
+      sx={{
+        p: 1,
+        m: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: 40,
+        borderRadius: 2,
+      }}
+    >
+      {/* Left side: Headline and Content */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+        <Typography fontSize="0.8rem" color="text.secondary">
+          {headline}
+        </Typography>
+        <Typography fontSize="1.2rem">{content}</Typography>
+      </Box>
+
+      {/* Right side: Icons */}
+      <Box sx={{ display: 'flex', gap: 1, ml: 2 }}>
+        <IconButton aria-label="delete">
+          <DropDownIcon />
+        </IconButton>
+      </Box>
+    </Paper>
+  );
+};
+
+export default TopBarButton;

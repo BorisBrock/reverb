@@ -27,17 +27,17 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function PersonList() {
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      <nav aria-label="main mailbox folders">
+      <nav aria-label="People">
         <List>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <PersonIcon />
               </ListItemIcon>
               <ListItemText primary="Anton" />
             </ListItemButton>
@@ -45,7 +45,7 @@ export default function PersonList() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <DraftsIcon />
+                <PersonIcon />
               </ListItemIcon>
               <ListItemText primary="Berta" />
             </ListItemButton>
