@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -28,8 +27,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import SendIcon from '@mui/icons-material/Send';
 import EditIcon from '@mui/icons-material/Edit';
 import PersonIcon from '@mui/icons-material/Person';
+import React, { useEffect, useState } from 'react';
+import init, { add, say_hello } from "reverb-lib";
+
 
 export default function PersonList() {
+
+  const [name, setName] = useState();
+
+  const changeName = () => { setName(say_hello()); };
+
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <nav aria-label="People">
@@ -39,7 +46,7 @@ export default function PersonList() {
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Anton" />
+              <ListItemText primary="Anton" onClick={changeName}/>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -47,7 +54,7 @@ export default function PersonList() {
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Berta" />
+              <ListItemText primary={name} />
             </ListItemButton>
           </ListItem>
         </List>

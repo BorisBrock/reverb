@@ -29,7 +29,7 @@ import SendIcon from '@mui/icons-material/Send';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DropDownIcon from '@mui/icons-material/ArrowDropDown';
-import MuteIcon from '@mui/icons-material/VolumeMute';
+import ServerIcon from '@mui/icons-material/Computer';
 
 interface TopBarButtonProps {
   headline: string;
@@ -38,33 +38,35 @@ interface TopBarButtonProps {
 
 const TopBarButton: React.FC<TopBarButtonProps> = ({ headline, content }) => {
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        p: 1,
-        m: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        height: 40,
-        borderRadius: 2,
-      }}
-    >
-      {/* Left side: Headline and Content */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-        <Typography fontSize="0.8rem" color="text.secondary">
-          {headline}
-        </Typography>
-        <Typography fontSize="1.2rem">{content}</Typography>
-      </Box>
+    <IconButton aria-label="delete">
+      <Paper
+        elevation={3}
+        sx={{
+          p: 1,
+          display: 'flex',
+          alignItems: 'left',
+          justifyContent: 'space-between',
+          height: 36,
+          borderRadius: 2,
+        }}
+      >
 
-      {/* Right side: Icons */}
-      <Box sx={{ display: 'flex', gap: 1, ml: 2 }}>
-        <IconButton aria-label="delete">
-          <DropDownIcon />
-        </IconButton>
-      </Box>
-    </Paper>
+        {/* Left side: Headline and Content */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <Typography fontSize="0.6rem" color="text.secondary">
+            {headline}
+          </Typography>
+          <Typography fontSize="0.8rem">{content}</Typography>
+        </Box>
+
+        {/* Right side: Icons */}
+        <Box sx={{ display: 'flex', gap: 1, ml: 2 }}>
+          <IconButton aria-label="delete">
+            <DropDownIcon />
+          </IconButton>
+        </Box>
+      </Paper>
+    </IconButton>
   );
 };
 
